@@ -11,11 +11,13 @@ def parse_arguments():
                         help='Number of rows and columns for a square matrix (default=500)')
     parser.add_argument('-e', '--exponent', default=3, type=int,
                         help='Matrix exponent (default=3)')
+    parser.add_argument('-s', '--seed', default=1234, type=int,
+                        help='Seed for randomizing the matrix')
     
     return parser.parse_args()
 
 
-def make_mtrx(N):
+def make_mtrx(N, seed):
     """
     Return a N-by-N square matrix of size, with uniform random distribution
     between [-0.5, 0.5)
@@ -23,12 +25,14 @@ def make_mtrx(N):
     Parameters
     ----------
     N : int, number of rows and columns of the array
+    seed : int, randomize the matrix using seed
 
     Returns
     -------
     mtrx : NxN ndarray of type float
     """
-    return np.random.rand(N, N) - 0.5
+    rng = np.random.default_rng(seed)
+    return rng.rand(N, N) - 0.5
 
 
 def exponentiate(A, e):
@@ -50,5 +54,7 @@ def exponentiate(A, e):
 if __name__ == '__main__':
     args = parse_arguments()
 
-    mtrx = make_mtrx(N=args.num_rows)
+    mtrx = make_mtrx(N=args.num_rows, seed=args.seed)
     mtrx_e = exponentiate(mtrx, args.exponent)
+
+    print(mtrx_e.dims)
