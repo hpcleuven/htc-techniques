@@ -57,4 +57,4 @@ if __name__ == '__main__':
     mtrx = make_mtrx(N=args.num_rows, seed=args.seed)
     mtrx_e = exponentiate(mtrx, args.exponent)
 
-    print(mtrx_e.dims)
+    print(mtrx_e.shape, mtrx_e.dtype)
