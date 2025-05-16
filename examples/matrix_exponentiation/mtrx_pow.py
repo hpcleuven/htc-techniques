@@ -6,7 +6,7 @@ def parse_arguments():
     """
     Parse cmdargs
     """
-    parser = argparse.Argument_Parser(prog='mtrx_pow.py')
+    parser = argparse.ArgumentParser(prog='mtrx_pow.py')
     parser.add_argument('-n', '--num-rows', default=500, type='int',
                         help='Number of rows and columns for a square matrix (default=500)')
     parser.add_argument('-e', '--exponent', default=3, type='int',
