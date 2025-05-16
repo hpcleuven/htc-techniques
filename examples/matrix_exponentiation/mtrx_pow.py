@@ -32,7 +32,7 @@ def make_mtrx(N, seed):
     mtrx : NxN ndarray of type float
     """
     rng = np.random.default_rng(seed)
-    return rng.random(N, N) - 0.5
+    return rng.random((N, N)) - 0.5
 
 
 def exponentiate(A, e):
