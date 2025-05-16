@@ -28,6 +28,7 @@ code-annotations: select
 <!-- {{< include /_motivation.qmd >}} -->
 <!-- {{< include /_running_R_on_HPC_systems.qmd >}} -->
 {{< include /_define_htc.qmd >}}
+{{< include /_know_your_app.qmd >}}
 {{< include /_walltime_and_memory.qmd >}}
 {{< include /_efficiency.qmd >}}
 {{< include /_profiling_and_optimization.qmd >}}

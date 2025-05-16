@@ -1,0 +1,18 @@
+# Know Your App
+
+
+## Step 1. Representative Case
+
+- Define a representative case
+  (keep domain size, particles, protein size, genome size)
+- Runtime of +/- minutes
+  (reduced timesteps)
+
+Resource considerations
+
+- Serial vs parallel code
+  if parallel, MPI? OpenMP? or hybrid?
+- CPU or GPU needed
+- max memory needed
+- I/O pattern and storage request
+
