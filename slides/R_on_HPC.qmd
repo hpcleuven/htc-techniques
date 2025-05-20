@@ -2,6 +2,8 @@
 title: "Best practices for R on HPC"
 author: "Ehsan Moravveji"
 institution: "Vlaams Supercomputer Centrum"
+header: "Credits: Geert Jan Bex (UHasselt, KU Leuven)"
+footer: "Credits: Geert Jan Bex (UHasselt, KU Leuven)"
 date: 2 June 2025
 format:
   revealjs:
@@ -31,6 +33,8 @@ code-annotations: select
 {{< include /_know_your_app.qmd >}}
 {{< include /_walltime_and_memory.qmd >}}
 {{< include /_efficiency.qmd >}}
+{{< include /_fill_a_node_single.qmd >}}
+{{< include /_fill_a_node_multiple.qmd >}}
 {{< include /_profiling_and_optimization.qmd >}}
 
 
