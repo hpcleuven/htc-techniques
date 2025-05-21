@@ -1,0 +1,48 @@
+SLURM_JOB_ID: 64527889
+SLURM_JOB_USER: vsc30745
+SLURM_JOB_ACCOUNT: lpt2_sysadmin
+SLURM_JOB_NAME: vary_power
+SLURM_CLUSTER_NAME: wice
+SLURM_JOB_PARTITION: batch_sapphirerapids
+SLURM_NNODES: 1
+SLURM_NODELIST: q16c40n1
+SLURM_JOB_CPUS_PER_NODE: 96
+Date: Tue May 20 16:32:03 CEST 2025
+Walltime: 00-01:00:00
+========================================================================
+power=10
+[1] -2.936679e+16  2.591341e+16
+
+real	0m3.557s
+user	0m8.970s
+sys	0m0.732s
+power=20
+[1] -1.138206e+34  9.974257e+33
+
+real	0m5.988s
+user	0m18.195s
+sys	0m1.099s
+power=30
+[1] -4.678808e+51  3.790281e+51
+
+real	0m8.572s
+user	0m27.561s
+sys	0m1.476s
+power=40
+[1] -1.779038e+69  1.887544e+69
+
+real	0m11.071s
+user	0m36.838s
+sys	0m1.768s
+power=50
+[1] -7.116572e+86  6.261854e+86
+
+real	0m13.604s
+user	0m46.112s
+sys	0m2.030s
+power=60
+[1] -3.495071e+104  2.843123e+104
+
+real	0m16.070s
+user	0m54.702s
+sys	0m2.511s
