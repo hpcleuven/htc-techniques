@@ -14,5 +14,5 @@ module load R-bundle-CRAN/2024.11-foss-2024a
 for threads in 1 2 4 8 16 32 48 64 96; do
     export OMP_NUM_THREADS=$threads
     echo "OMP_NUM_THREADS=$OMP_NUM_THREADS"
-    time Rscript dgemm.R -n 1 -s 3333 -p 20 -c 1
+    time Rscript dgemm.R -n 1 -s 3333 -p 60 -c 1
 done

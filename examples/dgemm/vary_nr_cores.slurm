@@ -15,5 +15,5 @@ export OMP_NUM_THREADS=4
 
 for c in 1 2 4 8 16 24; do
     echo "NR_CORES=$c"
-    time Rscript dgemm.R -n 1 -s 10000 -p 20 -c $c
+    time Rscript dgemm.R -n 1 -s 3333 -p 60 -c $c
 done

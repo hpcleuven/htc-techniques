@@ -15,5 +15,5 @@ export OMP_NUM_THREADS=4
 
 for s in 33 100 333 1000 3333 10000; do
     echo "SIZE=$s"
-    time Rscript dgemm.R -n 1 -s $s -p 20 -c 1
+    time Rscript dgemm.R -n 1 -s $s -p 60 -c 1
 done

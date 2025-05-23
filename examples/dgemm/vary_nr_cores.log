@@ -1,58 +1,58 @@
-SLURM_JOB_ID: 64527927
+SLURM_JOB_ID: 64538691
 SLURM_JOB_USER: vsc30745
 SLURM_JOB_ACCOUNT: lpt2_sysadmin
 SLURM_JOB_NAME: vary_nr_cores
 SLURM_CLUSTER_NAME: wice
 SLURM_JOB_PARTITION: batch_sapphirerapids
 SLURM_NNODES: 1
-SLURM_NODELIST: q16c40n1
+SLURM_NODELIST: q16c07n1
 SLURM_JOB_CPUS_PER_NODE: 96
-Date: Tue May 20 16:39:07 CEST 2025
+Date: Fri May 23 10:42:07 CEST 2025
 Walltime: 00-01:00:00
 ========================================================================
 NR_CORES=1
-[1] -3.834985e+38  3.605104e+38
+[1] -3.495071e+104  2.843123e+104
 
-real	1m57.559s
-user	7m21.898s
-sys	0m7.089s
+real	0m17.707s
+user	0m51.098s
+sys	0m2.595s
 NR_CORES=2
 Loading required package: iterators
 Loading required package: parallel
-[1] -3.834985e+38  3.605104e+38
+[1] -3.495071e+104  2.843123e+104
 
-real	1m52.988s
-user	7m0.338s
-sys	0m6.310s
+real	0m15.894s
+user	0m51.504s
+sys	0m2.481s
 NR_CORES=4
 Loading required package: iterators
 Loading required package: parallel
-[1] -3.834985e+38  3.605104e+38
+[1] -3.495071e+104  2.843123e+104
 
-real	1m39.971s
-user	6m12.409s
-sys	0m6.518s
+real	0m15.306s
+user	0m51.358s
+sys	0m2.422s
 NR_CORES=8
 Loading required package: iterators
 Loading required package: parallel
-[1] -3.834985e+38  3.605104e+38
+[1] -3.495071e+104  2.843123e+104
 
-real	1m53.407s
-user	7m4.071s
-sys	0m6.513s
+real	0m15.229s
+user	0m51.034s
+sys	0m2.413s
 NR_CORES=16
 Loading required package: iterators
 Loading required package: parallel
-[1] -3.834985e+38  3.605104e+38
+[1] -3.495071e+104  2.843123e+104
 
-real	1m51.861s
-user	6m58.221s
-sys	0m6.458s
+real	0m15.361s
+user	0m51.639s
+sys	0m2.393s
 NR_CORES=24
 Loading required package: iterators
 Loading required package: parallel
-[1] -3.834985e+38  3.605104e+38
+[1] -3.495071e+104  2.843123e+104
 
-real	1m53.376s
-user	7m4.974s
-sys	0m7.197s
+real	0m15.442s
+user	0m51.707s
+sys	0m2.481s

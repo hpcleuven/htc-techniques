@@ -1,66 +1,66 @@
-SLURM_JOB_ID: 64531874
+SLURM_JOB_ID: 64537861
 SLURM_JOB_USER: vsc30745
 SLURM_JOB_ACCOUNT: lpt2_sysadmin
 SLURM_JOB_NAME: vary_omp_num_threads
 SLURM_CLUSTER_NAME: wice
 SLURM_JOB_PARTITION: batch_sapphirerapids
 SLURM_NNODES: 1
-SLURM_NODELIST: q16c09n1
+SLURM_NODELIST: q16c03n3
 SLURM_JOB_CPUS_PER_NODE: 96
-Date: Wed May 21 16:31:56 CEST 2025
+Date: Fri May 23 08:55:30 CEST 2025
 Walltime: 00-01:00:00
 ========================================================================
 OMP_NUM_THREADS=1
-[1] -1.138206e+34  9.974257e+33
+[1] -3.495071e+104  2.843123e+104
 
-real	0m17.394s
-user	0m14.270s
-sys	0m0.800s
+real	0m47.462s
+user	0m42.656s
+sys	0m1.140s
 OMP_NUM_THREADS=2
-[1] -1.138206e+34  9.974257e+33
+[1] -3.495071e+104  2.843123e+104
 
-real	0m8.514s
-user	0m14.687s
-sys	0m0.725s
+real	0m23.907s
+user	0m44.047s
+sys	0m1.373s
 OMP_NUM_THREADS=4
-[1] -1.138206e+34  9.974257e+33
+[1] -3.495071e+104  2.843123e+104
 
-real	0m6.046s
-user	0m18.244s
-sys	0m1.169s
+real	0m15.988s
+user	0m54.682s
+sys	0m2.464s
 OMP_NUM_THREADS=8
-[1] -1.138206e+34  9.974257e+33
+[1] -3.495071e+104  2.843123e+104
 
-real	0m4.101s
-user	0m21.237s
-sys	0m1.598s
+real	0m10.448s
+user	1m3.825s
+sys	0m3.974s
 OMP_NUM_THREADS=16
-[1] -1.138206e+34  9.974257e+33
+[1] -3.495071e+104  2.843123e+104
 
-real	0m3.213s
-user	0m27.137s
-sys	0m2.930s
+real	0m8.163s
+user	1m27.002s
+sys	0m8.270s
 OMP_NUM_THREADS=32
-[1] -1.138206e+34  9.974257e+33
+[1] -3.495071e+104  2.843123e+104
 
-real	0m2.759s
-user	0m35.924s
-sys	0m6.661s
+real	0m6.387s
+user	1m50.846s
+sys	0m18.727s
 OMP_NUM_THREADS=48
-[1] -1.138206e+34  9.974257e+33
+[1] -3.495071e+104  2.843123e+104
 
-real	0m2.517s
-user	0m46.731s
-sys	0m8.359s
+real	0m5.786s
+user	2m20.715s
+sys	0m26.498s
 OMP_NUM_THREADS=64
-[1] -1.138206e+34  9.974257e+33
+[1] -3.495071e+104  2.843123e+104
 
-real	0m2.487s
-user	0m59.946s
-sys	0m11.338s
+real	0m5.678s
+user	2m59.115s
+sys	0m37.555s
 OMP_NUM_THREADS=96
-[1] -1.138206e+34  9.974257e+33
+[1] -3.495071e+104  2.843123e+104
 
-real	0m2.540s
-user	1m23.711s
-sys	0m26.420s
+real	0m6.279s
+user	4m45.787s
+sys	1m30.827s

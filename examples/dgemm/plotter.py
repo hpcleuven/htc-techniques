@@ -23,7 +23,14 @@ def parse_args():
     parser = argparse.ArgumentParser(prog='plotter.py',
                 description='Plotter for benchmarking results')
     parser.add_argument('-f', '--filename', help='logfile containing scaling results')
-
+    parser.add_argument('-t', '--tabulate', action='store_true', 
+                        help='Tabulate the results in Quarto format')
+    parser.add_argument('--plot-runtime', action='store_true',
+                        help='Plot real runtime (sec)')
+    parser.add_argument('--plot-scaling', action='store_true',
+                        help='Plot speedup and parallel efficiency')
+    parser.add_argument('--figure-name', default='plot.png',
+                        help='Full/relative path to the figure name (default="plot.png")')
     return parser.parse_args()
 
 
@@ -124,16 +131,68 @@ def tabulate(dics):
     -------
     lines: list of str; ready to be printed
     """
-    lines = ['VAL     RUNTIME SPEEDUP EFF.\n']
+    key = dics[0]['key'].upper()
+    lines = [f'| {key:7s} | RUNTIME | SPEEDUP | EFF.  |\n',
+             '|---------|---------|---------|-------|\n']
     for d in dics:
         val = d['val']
         real = d['real']
         speedup = d['speedup']
         efficiency = d['efficiency']
-        line = f'{val:<8d}{real:<8.1f}{speedup:<8.1f}{efficiency:<8.2f}\n'
+        line = f'| {val:<7d} | {real:<7.1f} | {speedup:<7.1f} | {efficiency:<5.3f} |\n'
         lines.append(line)
 
     return lines
+
+
+def plot_runtime(dics, name='plot.png'):
+    """
+    Plot the pure runtime (s) base on the 'real' key in each dict
+
+    Parameters
+    ----------
+    dics: list of dict; see 'do_benchmark()'
+    name: str, absolute/relative path to the figure name
+    """
+    xvals = [d['val'] for d in dics]
+    yvals = [d['real'] for d in dics]
+
+    fig, ax = plt.subplots()
+
+    plt.plot(xvals, yvals, color='b', marker='o', markersize=14, linestyle='-', linewidth=3)
+    ax.set_xticks(ticks=xvals, labels=[str(x) for x in xvals])
+    plt.xlabel(dics[0]['key'], fontsize='large')
+    plt.ylabel('Runtime (sec)', fontsize='large')
+
+    fig.tight_layout()
+    plt.savefig(name, transparent=True)
+
+
+def plot_scaling(dics, name='plot.png'):
+    """
+    Plot the speedup and parallel efficiency
+
+    Parameters
+    ----------
+    dics: list of dict; see 'do_benchmark()'
+    name: str, absolute/relative path to the figure name
+    """
+    xvals = [d['val'] for d in dics]
+    ytop  = [d['speedup'] for d in dics]
+    ybot  = [d['efficiency'] for d in dics]
+
+    fig, (top, bot) = plt.subplots(2, 1, sharex=True)
+
+    top.plot(xvals, xvals, linestyle='solid', linewidth=3, color='grey')
+    top.plot(xvals, ytop, color='b', marker='o', markersize=14, linestyle='-', linewidth=3)
+    bot.plot(xvals, ybot, color='r', marker='o', markersize=14, linestyle='-', linewidth=3)
+    bot.set_xticks(ticks=xvals, labels=[str(x) for x in xvals])
+    bot.set_xlabel(dics[0]['key'], fontsize='large')
+    top.set_ylabel('Speedup', fontsize='large')
+    bot.set_ylabel('Parallel Efficiency', fontsize='large')
+
+    fig.tight_layout()
+    fig.savefig(name, transparent=True)
 
 
 def main():
@@ -144,8 +203,18 @@ def main():
 
     benchmark = do_benchmark(data)
 
-    table = tabulate(benchmark)
-    print(''.join(table))
+    if args.tabulate:
+        table = tabulate(benchmark)
+        print(''.join(table))
+
+    if args.plot_runtime:
+        plot_runtime(dics=benchmark, name=args.figure_name)
+
+    if args.plot_scaling:
+        plot_scaling(dics=benchmark, name=args.figure_name)
+
+    return 0
+
 
 if __name__ == '__main__':
     sys.exit(main())
