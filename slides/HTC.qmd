@@ -1,9 +1,8 @@
 ---
-title: "Best practices for R on HPC"
+title: "High Throughput Computing Techniques"
+subtitle: "Performance aspects"
 author: "Ehsan Moravveji"
 institution: "Vlaams Supercomputer Centrum"
-header: "Credits: Geert Jan Bex (UHasselt, KU Leuven)"
-footer: "Credits: Geert Jan Bex (UHasselt, KU Leuven)"
 date: 2 June 2025
 format:
   revealjs:
@@ -14,9 +13,12 @@ title-slide-attributes:
   data-background-size: contain
   data-background-position: bottom
 code-annotations: select
+toc: true
 ---
 
-## Overview {.smaller}
+{{< include /_resources.qmd >}}
+
+## Overview
 
 - High Throughput Computing (HTC)
 - Walltime & memory

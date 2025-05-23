@@ -1,3 +1,3 @@
 #!/usr/bin/env -S bash -l
 
-quarto preview R_on_HPC.qmd --render revealjs
+quarto preview HTC.qmd --render revealjs --port 3045

@@ -1,32 +1,39 @@
 # Know Your App
 
 
-## Step 1. Representative Case
+## Representative Case
 
 - Define a representative case
-  (keep domain size, particles, protein size, genome size)
+  (domain size, num. particles, protein size, genome size, etc)
 - Runtime of +/- minutes
   (reduced timesteps)
 
 
-## Resource considerations
+## Which Resources Do I Need?
 
 - Serial vs parallel code
   if parallel, MPI? OpenMP? or hybrid?
-- CPU or GPU needed
-- max memory needed
+- CPU or GPU needed (read user guide)
+- max memory needed (use [monitor](https://docs.vscentrum.be/compute/jobs/monitoring_memory_and_cpu_usage_of_programs.html) tool)
 - I/O pattern and storage request
 
 
 ## Example: DGEMM
 
-- `R` script for matrix-matrix multiplication
-- Using BLAS with OpenMP multi-threading
-  (Avoid oversubscription by setting `OMP_NUM_THREADS`)
+::: {.panel-tabset}
+
+### About
+
+- `dgemm.R`: matrix-matrix multiplication in `R`
+- Using BLAS with OpenMP multi-threading: `%*%`
+- Avoid oversubscription by setting `OMP_NUM_THREADS`
 - Using parallel `foreach` for multiple matrices
 
+### Jobscript
+
 ```{bash}
-module load R/4.4.1-gfbf-2024a
+module load R/4.4.2-gfbf-2024a
+module load R-bundle-CRAN/2024.11-foss-2024a
 
 # call signature
 export OMP_NUM_THREADS=1
@@ -36,6 +43,53 @@ dgemm.R --nr-matrices <M> --matrix-size <S> \
 
 - experiment with input variables `M, S, P, C`
 
+### `R` script
+
+```{r}
+# Function to compute the matrix power
+matrix_power <- function(A, power) {
+    result <- A
+    for (i in 1:(power-1)) {
+        result <- result %*% A
+    }
+    result
+}
+```
+
+:::
+
+
+## Multi-threading
+
+::: {.panel-tabset}
+
+### About
+
+- `%*%` operator triggers BLAS
+- BLAS is multithreaded (OpenMP)
+- experiment with `OMP_NUM_THREADS`
+- Setting `S = 3333, P = 60, C = 1, N = 1`
+
+### Benchmark
+
+| OMP_NUM_THREADS | RUNTIME | SPEEDUP | EFF.  |
+|---------|---------|---------|-------|
+| 1       | 47.5    | 1.0     | 1.000 |
+| 2       | 23.9    | 2.0     | 0.993 |
+| 4       | 16.0    | 3.0     | 0.742 |
+| 8       | 10.4    | 4.5     | 0.568 |
+| 16      | 8.2     | 5.8     | 0.363 |
+| 32      | 6.4     | 7.4     | 0.232 |
+| 48      | 5.8     | 8.2     | 0.171 |
+| 64      | 5.7     | 8.4     | 0.131 |
+| 96      | 6.3     | 7.6     | 0.079 |
+
+
+### Graph
+
+![Multi-threading experiment](../examples/dgemm/figures/scaling_omp_num_threads.png)
+
+:::
 
 ## 1.x. Varying `--nr-cores`
 
@@ -44,10 +98,6 @@ dgemm.R --nr-matrices <M> --matrix-size <S> \
 ## 1.y. Varying `--matrix-size` & `--power`
 
 `OMP_NUM_THREADS=1`
-
-## 1.z. Varying `OMP_NUM_THREADS`
-
-`S = ..., P = ..., C = ...`
 
 ## Optimal Setup
 
