@@ -4,9 +4,10 @@ import os
 import sys
 import argparse
 import re
+import numpy as np
 from matplotlib import pyplot as plt
 
-
+### Predefined/global consts
 REG_TIMINGS = re.compile(
                          r'^(?P<KEY>[\w\_]+)=(?P<VAL>[\d]+)\n'
                          r'^\[\d+\]\s([-+eE0-9.]+)\s+([-+eE0-9.]+)\n\n'
@@ -17,7 +18,10 @@ REG_TIMINGS = re.compile(
 
 REG_MINSEC = re.compile(r'(?P<MIN>[\d]+)m(?P<SEC>[\d\.]+)s')
 
+BASE_LOG_XAXIS = 2
 
+
+### helper functions
 def parse_args():
     """ Parse command line args """
     parser = argparse.ArgumentParser(prog='plotter.py',
@@ -27,8 +31,12 @@ def parse_args():
                         help='Tabulate the results in Quarto format')
     parser.add_argument('--plot-runtime', action='store_true',
                         help='Plot real runtime (sec)')
+    parser.add_argument('--plot-speedup', action='store_true',
+                        help='Plot only the speedup results')
+    parser.add_argument('--plot-efficiency', action='store_true',
+                        help='Plot only the parallel efficiency results')
     parser.add_argument('--plot-scaling', action='store_true',
-                        help='Plot speedup and parallel efficiency')
+                        help='Plot both the speedup and parallel efficiency together')
     parser.add_argument('--figure-name', default='plot.png',
                         help='Full/relative path to the figure name (default="plot.png")')
     return parser.parse_args()
@@ -157,10 +165,12 @@ def plot_runtime(dics, name='plot.png'):
     xvals = [d['val'] for d in dics]
     yvals = [d['real'] for d in dics]
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(6, 4), dpi=120)
 
     plt.plot(xvals, yvals, color='b', marker='o', markersize=14, linestyle='-', linewidth=3)
-    ax.set_xticks(ticks=xvals, labels=[str(x) for x in xvals])
+    ax.set_xticks(ticks=np.log2(xvals))
+    ax.set_xticklabels([str(x) for x in xvals])
+    ax.set_xscale('log', basex=BASE_LOG_XAXIS)
     plt.xlabel(dics[0]['key'], fontsize='large')
     plt.ylabel('Runtime (sec)', fontsize='large')
 
@@ -168,13 +178,14 @@ def plot_runtime(dics, name='plot.png'):
     plt.savefig(name, transparent=True)
 
 
-def plot_scaling(dics, name='plot.png'):
+def plot_scaling(dics, highlight=2, name='plot.png'):
     """
-    Plot the speedup and parallel efficiency
+    Plot the speedup and parallel efficiency on top of one another
 
     Parameters
     ----------
     dics: list of dict; see 'do_benchmark()'
+    highlight: int, the datapoint to highlight (default=2)
     name: str, absolute/relative path to the figure name
     """
     xvals = [d['val'] for d in dics]
@@ -183,11 +194,16 @@ def plot_scaling(dics, name='plot.png'):
 
     fig, (top, bot) = plt.subplots(2, 1, sharex=True)
 
+    if highlight < len(xvals):
+        top.scatter(xvals[highlight], ytop[highlight], s=100, color='black', zorder=1)
+        bot.scatter(xvals[highlight], ybot[highlight], s=100, color='black', zorder=1)
+
     top.plot(xvals, xvals, linestyle='solid', linewidth=3, color='grey')
-    top.plot(xvals, ytop, color='b', marker='o', markersize=14, linestyle='-', linewidth=3)
-    bot.plot(xvals, ybot, color='r', marker='o', markersize=14, linestyle='-', linewidth=3)
+    top.plot(xvals, ytop, color='b', marker='o', markersize=14, linestyle='-', linewidth=3, zorder=0)
+    bot.plot(xvals, ybot, color='r', marker='o', markersize=14, linestyle='-', linewidth=3, zorder=0)
     bot.set_xticks(ticks=xvals, labels=[str(x) for x in xvals])
     bot.set_xlabel(dics[0]['key'], fontsize='large')
+    bot.set_xscale('log', basex=BASE_LOG_XAXIS)
     top.set_ylabel('Speedup', fontsize='large')
     bot.set_ylabel('Parallel Efficiency', fontsize='large')
 
@@ -195,6 +211,62 @@ def plot_scaling(dics, name='plot.png'):
     fig.savefig(name, transparent=True)
 
 
+def plot_speedup(dics, highlight=2, name='plot.png'):
+    """
+    Plot the speedup
+
+    Parameters
+    ----------
+    dics: list of dict; see 'do_benchmark()'
+    highlight: int, the datapoint to highlight (default=2)
+    name: str, absolute/relative path to the figure name
+    """
+    xvals = [d['val'] for d in dics]
+    yvals  = [d['speedup'] for d in dics]
+
+    fig, ax = plt.subplots(figsize=(6, 4), dpi=120)
+
+    if highlight < len(xvals):
+        ax.scatter(xvals[highlight], yvals[highlight], s=100, color='black', zorder=2)
+
+    ax.plot(xvals, xvals, linestyle='solid', linewidth=3, color='grey', zorder=0)
+    ax.plot(xvals, yvals, color='b', marker='o', markersize=14, linestyle='-', linewidth=3, zorder=1)
+    ax.set_xlabel(dics[0]['key'], fontsize='large')
+    ax.set_xscale('log', basex=BASE_LOG_XAXIS)
+    ax.set_ylabel('Speedup', fontsize='large')
+
+    fig.tight_layout()
+    fig.savefig(name, transparent=True)
+
+
+def plot_efficiency(dics, highlight=2, name='plot.png'):
+    """
+    Plot the parallel efficiency
+
+    Parameters
+    ----------
+    dics: list of dict; see 'do_benchmark()'
+    highlight: int, the datapoint to highlight (default=2)
+    name: str, absolute/relative path to the figure name
+    """
+    xvals = [d['val'] for d in dics]
+    yvals  = [d['efficiency'] for d in dics]
+
+    fig, ax = plt.subplots(figsize=(6, 4), dpi=120)
+
+    if highlight < len(xvals):
+        ax.scatter([xvals[highlight]], [yvals[highlight]], s=100, color='black', zorder=1)
+
+    ax.plot(xvals, yvals, color='r', marker='o', markersize=14, linestyle='-', linewidth=3, zorder=0)
+    ax.set_xlabel(dics[0]['key'], fontsize='large')
+    ax.set_ylabel('Efficiency', fontsize='large')
+    ax.set_xscale('log', basex=BASE_LOG_XAXIS)
+
+    fig.tight_layout()
+    fig.savefig(name, transparent=True)
+
+
+### main caller
 def main():
     """ The main caller """
     args = parse_args()
@@ -209,6 +281,12 @@ def main():
 
     if args.plot_runtime:
         plot_runtime(dics=benchmark, name=args.figure_name)
+
+    if args.plot_speedup:
+        plot_speedup(dics=benchmark, name=args.figure_name)
+
+    if args.plot_efficiency:
+        plot_efficiency(dics=benchmark, name=args.figure_name)
 
     if args.plot_scaling:
         plot_scaling(dics=benchmark, name=args.figure_name)

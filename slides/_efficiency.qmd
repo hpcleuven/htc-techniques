@@ -1,25 +1,62 @@
 # Efficiency
 
 
-## Implicit parallelism
+## Representative Case
 
-Some R functions/operations are parallel under the hood
+- Define a representative case
+  (domain size, num. particles, protein size, genome size, etc)
+- Runtime of +/- minutes
+  (reduced timesteps)
 
-::: {.fragment}
-```r
-A <- matrix(rnorm(25), nrow=5)
-result <- A
-for (i in 1:(power-1)) {
-    result <- result %*% A
+
+## Which Resources Do I Need?
+
+- Serial vs parallel code
+  if parallel, MPI? OpenMP? or hybrid?
+- CPU or GPU needed (read user guide)
+- max memory needed (use [monitor](https://docs.vscentrum.be/compute/jobs/monitoring_memory_and_cpu_usage_of_programs.html) tool)
+- I/O pattern and storage request
+
+
+## Example: DGEMM
+
+::: {.panel-tabset}
+
+### About
+
+- `dgemm.R`: matrix-matrix multiplication in `R`
+- Using BLAS with OpenMP multi-threading: `%*%`
+- Implicit parallelism
+- Avoid oversubscription by setting `OMP_NUM_THREADS`
+- Using parallel `foreach` for multiple matrices
+
+### Jobscript
+
+```{bash}
+module load R/4.4.2-gfbf-2024a
+module load R-bundle-CRAN/2024.11-foss-2024a
+
+# call signature
+export OMP_NUM_THREADS=1
+dgemm.R --nr-matrices <M> --matrix-size <S> \
+        --power <P> --seed <Z> --nr-cores <C>
+```
+
+- experiment with input variables `M, S, P, C`
+
+### `R` script
+
+```{r}
+# Function to compute the matrix power
+matrix_power <- function(A, power) {
+    result <- A
+    for (i in 1:(power-1)) {
+        result <- result %*% A
+    }
+    result
 }
 ```
-:::
 
-::: {.fragment}
-How do you know?
-
-- Check the documentation
-- Measure it
 :::
 
 
@@ -29,27 +66,36 @@ Experiments done on a wICE Sapphire Rapids node
 
 - 2 Intel Xeon Platinum 8468 sockets, 48-cores each
 - 256 GB RAM
-- Modules: `R/4.4.2-gfbf-2024a` and `R-bundle-CRAN/2024.11-foss-2024a`
+- `module load R/4.4.2-gfbf-2024a`
+- `module load R-bundle-CRAN/2024.11-foss-2024a`
 
 
 ## Parallel or not?
 
-Use the `time` command:
+You don't know unless you:
 
-```{bash}
-$ time Rscript dgemm.R \
-    --nr_matrices=1 --size 3333 \
-    --power 60 &> /dev/null
+::: {.fragment}
+- Check the documentation
+- Measure it
+:::
+
+::: {.fragment}
+
+```bash
+$ time Rscript dgemm.R --nr_matrices=1 --size 3333 --power 60 &> /dev/null
 
 real    0m6.140s
 user    3m58.968s
 sys     1m26.297s
 ```
 
-1. Real time, i.e., walltime
-2. User time, i.e., CPU time used
+1. `real` gives the walltime
+2. `user` gives the CPU time used
+:::
 
+::: {.fragment}
 4 minutes CPU time in 6 seconds walltime ... [parallelism!]{.fragment}
+:::
 
 ::: {.fragment}
 - `%*%` uses Basic Linear Algebra Subroutines (BLAS)
@@ -57,13 +103,17 @@ sys     1m26.297s
 :::
 
 
-## How to exploit that?
+## Setting `--cpus-per-task > 1` {fontsize=80%}
 
-Easy: set `--cpus-per-task` > 1
+::: {.panel-tabset}
 
-::::: {.columns}
-:::: {.column width=50%}
-::: {style="font-size: 70%;"}
+#### Results
+
+:::: {.columns}
+::::: {.column width=50%}
+
+<div style="font-size: 0.75em;">
+
 | CPUs per task ($n$) | walltime ($T_n$) |
 |---------------------|------------------|
 | 1                   | 44.1             |
@@ -72,155 +122,63 @@ Easy: set `--cpus-per-task` > 1
 | 8                   | 9.1              |
 | 12                  | 7.1              |
 | 16                  | 6.2              |
+
+</div>
+
+:::::
+
+:::: {.column width=50%}
+
+<div style="font-size: 0.75em;">
+
+| CPUs per task ($n$) | walltime ($T_n$) |
+|---------------------|------------------|
 | 24                  | 6.4              |
 | 32                  | 6.5              |
 | 48                  | 6.1              |
 | 64                  | 5.7              |
 | 96                  | 6.0              |
-:::
+
+</div>
+
+:::::
+
 ::::
-:::: {.column width=50% .fragment}
+
+#### Runtime
+
 ![](img/runtime_cpus_per_task.png)
+
+#### Speedup
+
+::: {.columns}
+:::: {.column width=15%}
+$S_n=\frac{T_1}{T_n}$
 ::::
-:::::
-
-[Nice!]{.fragment}
-
-::: notes
-Results from dgemm/slurm-multicore_benchmark.out
-:::
-
-## Speedup
-
-$S(n) = \frac{T_1}{T_n}$
-
-::::: {.columns}
-:::: {.column width=50%}
-::: {style="font-size: 80%;"}
-| $n$ | $T_n$ | $S(n)$ |
-|-----|-------|--------|
-| 1   | 109.6 | 1.00   |
-| 2   |  64.8 | 1.69   |
-| 4   |  50.5 | 2.17   |
-| 8   |  40.2 | 2.73   |
-| 12  |  34.3 | 3.20   |
-| 24  |  31.5 | 3.48   |
-| 48  |  31.0 | 3.54   |
-| 96  |  33.0 | 3.32   |
-:::
+:::: {.column width=85%}
+![](img/speedup_cpus_per_task.png)
 ::::
-:::: {.column width=50% .fragment}
-![](/img/speedup_vs_cpus_per_task.png)
+:::
+
+#### Efficiency
+
+::: {.columns}
+:::: {.column width=15%}
+$E_n=\frac{S_n}{n}$
 ::::
-:::::
-
-[Nice? Maybe...]{.fragment}
-
-::: notes
-Results from dgemm/slurm-multicore_benchmark.out
-:::
-
-
-## Parallel efficiency
-
-$E(n) = \frac{T_1}{n \cdot T_n}$
-
-::::: {.columns}
-:::: {.column width=50%}
-::: {style="font-size: 80%;"}
-| $n$ | $T_n$ | $S(n)$ | $E(n)$ |
-|-----|-------|--------|--------|
-| 1   | 109.6 | 1.00   | 1.00   |
-| 2   |  64.8 | 1.69   | 0.85   |
-| 4   |  50.5 | 2.17   | 0.54   |
-| 8   |  40.2 | 2.73   | 0.34   |
-| 12  |  34.3 | 3.20   | 0.27   |
-| 24  |  31.5 | 3.48   | 0.14   |
-| 48  |  31.0 | 3.54   | 0.07   |
-| 96  |  33.0 | 3.32   | 0.03   |
-:::
+:::: {.column width=85%}
+![](img/efficiency_cpus_per_task.png)
 ::::
-:::: {.column width=50% .fragment}
-![](/img/efficiency_vs_cpus_per_task.png)
-::::
-:::::
-
-[Nice?, not so much...]{.fragment} [HPC infrastructure is *very* expensive!]{.fragment}
-
-::: notes
-Results from dgemm/slurm-multicore_benchmark.out
 :::
 
+#### Conclusion
 
-## Lots of matrices...
-
-Often same script run for many parameter settings ($N$)
-
-::::: {.columns}
-:::: {.column width=50%}
-::: {style="font-size: 75%;"}
-| $N$ | $T_N$    | $S(N)$  | $E(N)$ |
-|-----|----------|---------|--------|
-| 1   | 14.0     | 1.00    | 1.00   |
-| 2   | 33.6     | 0.42    | 0.21   |
-| 4   | 90.1     | 0.16    | 0.04   |
-| 8   | 184.4    | 0.08    | 0.01   |
-| 12  | 252.5    | 0.06    | 0.005  |
-| 18  | 635.2    | 0.02    | 0.001  |
-:::
-::::
-:::: {.column width=50% .fragment}
-Oops!?!  Worse than serial?
-
-::: {.fragment}
-All R instances use 96 threads, so for $N = 18$...
-[$18 \times 96 = 1728$ threads $\gg$ number
-of cores]{.fragment}
-:::
-
-::: {.callout-warning .fragment}
-Massive oversubscription
-:::
-::::
-:::::
-
-::: notes
-Results from dgemm/slurm-multicore_omp_trouble.out
-:::
-
-
-## Control `OMP_NUM_THREADS`!
-
-Set `OMP_NUM_THREADS=2`
-
-::::: {.columns}
-:::: {.column width=50%}
-::: {style="font-size: 75%;"}
-| $N$ | $T_N$ | $S(N)$ | $E(N)$ |
-|-----|-------|--------|--------|
-| 1   | 42.6  | 1.00   | 1.00   
-| 4   | 43.7  | 3.90   | 0.98   |
-| 8   | 49.6  | 6.87   | 0.86   |
-| 12  | 65.3  | 7.82   | 0.65   |
-| 24  | 74.5  | 13.7   | 0.57   |
-| 36  | 85.2  | 18.0   | 0.50   |
-| 48  | 94.3  | 21.6   | 0.45   |
-:::
+:::: {.fragment}
+- Poor parallel efficiency if `--cpus-per-task>2`
+- HPC infrastructure is *very* expensive
+- Find an efficient setup
 ::::
 
-:::: {.column width=50% .fragment}
-$N = 8$ seems optimal, but what the heck, you're ruining the node anyway
-
-Better go all the way to $N = 48$
-
-::: {.callout-tip .fragment}
-`OMP_NUM_THREADS` $\le$ number of cores
-:::
-::::
-:::::
-
-::: notes
-Results from dgemm/slurm-multicore_gnu_parallel.out
 :::
 
 
@@ -233,7 +191,7 @@ Applications can be
 - I/O bound 😗
 
 ::: {.callout-warning .fragment}
-Benchmark you code!
+Benchmarking reveals it!
 :::
 
 
@@ -262,7 +220,7 @@ It's the memory architecture, stupid!
   - Runs command multiple times
   - Reports mean, median, min, max, etc.
   - Can compare multiple commands
-- For completed job
+- For completed job (including overheads)
   ```bash
   $ sacct --cluster=<cluster> --format=JobID,TotalCPU,Elapsed --jobs=<job-id>
   ```
@@ -282,4 +240,8 @@ Use appropriate file types, e.g.,
 
 - HDF5
 - Parquet
+:::
+
+::: {.callout-tip .fragment}
+Use `$VSC_SCRATCH_NODE` for SSD on the node.
 :::
