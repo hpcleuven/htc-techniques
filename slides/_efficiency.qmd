@@ -23,37 +23,37 @@ How do you know?
 :::
 
 
-## Benchmark environment
+## Benchmark Environment
 
-Experiments done on Sapphire Rapids node
+Experiments done on a wICE Sapphire Rapids node
 
-- 2 Intel Xeon Platinum 8468 48-core
+- 2 Intel Xeon Platinum 8468 sockets, 48-cores each
 - 256 GB RAM
-
-Module R/4.4.0-gfbf-2023a
+- Modules: `R/4.4.2-gfbf-2024a` and `R-bundle-CRAN/2024.11-foss-2024a`
 
 
 ## Parallel or not?
 
-Time the execution of R script
+Use the `time` command:
 
-```bash
-$ time Rscript dgemm.R &> /dev/null
+```{bash}
+$ time Rscript dgemm.R \
+    --nr_matrices=1 --size 3333 \
+    --power 60 &> /dev/null
 
-real    0m4.791s              # <1>
-user    1m21.693s             # <2>
-sys     0m31.345s
+real    0m6.140s
+user    3m58.968s
+sys     1m26.297s
 ```
 
 1. Real time, i.e., walltime
 2. User time, i.e., CPU time used
 
-82 seconds CPU time in 4.8 seconds walltime... [parallelism!]{.fragment}
+4 minutes CPU time in 6 seconds walltime ... [parallelism!]{.fragment}
 
 ::: {.fragment}
-`%*%` use Basic Linear Algebra Subroutines (BLAS)
-
-Uses multiple threads, each on a core
+- `%*%` uses Basic Linear Algebra Subroutines (BLAS)
+- Uses multiple threads, each on a core
 :::
 
 
@@ -66,18 +66,21 @@ Easy: set `--cpus-per-task` > 1
 ::: {style="font-size: 70%;"}
 | CPUs per task ($n$) | walltime ($T_n$) |
 |---------------------|------------------|
-| 1                   | 109.6            |
-| 2                   |  64.8            |
-| 4                   |  50.5            |
-| 8                   |  40.2            |
-| 12                  |  34.3            |
-| 24                  |  31.5            |
-| 48                  |  31.0            |
-| 96                  |  33.0            |
+| 1                   | 44.1             |
+| 2                   | 24.0             |
+| 4                   | 14.0             |
+| 8                   | 9.1              |
+| 12                  | 7.1              |
+| 16                  | 6.2              |
+| 24                  | 6.4              |
+| 32                  | 6.5              |
+| 48                  | 6.1              |
+| 64                  | 5.7              |
+| 96                  | 6.0              |
 :::
 ::::
 :::: {.column width=50% .fragment}
-![](/img/walltime_vs_cpus_per_task.png)
+![](img/runtime_cpus_per_task.png)
 ::::
 :::::
 

@@ -13,11 +13,17 @@ title-slide-attributes:
   data-background-size: contain
   data-background-position: bottom
 code-annotations: select
+code-line-numbers: true
 toc: true
+toc-depth: 1
+execute:
+  eval: false
+  output: false
 ---
 
 {{< include /_resources.qmd >}}
 
+<!--
 ## Overview
 
 - High Throughput Computing (HTC)
@@ -27,14 +33,14 @@ toc: true
   - Profiling
   - Code optimization
 - Wrap up
-
+-->
 
 <!-- {{< include /_motivation.qmd >}} -->
 <!-- {{< include /_running_R_on_HPC_systems.qmd >}} -->
 {{< include /_define_htc.qmd >}}
+{{< include /_efficiency.qmd >}}
 {{< include /_know_your_app.qmd >}}
 {{< include /_walltime_and_memory.qmd >}}
-{{< include /_efficiency.qmd >}}
 {{< include /_fill_a_node_single.qmd >}}
 {{< include /_fill_a_node_multiple.qmd >}}
 {{< include /_profiling_and_optimization.qmd >}}
