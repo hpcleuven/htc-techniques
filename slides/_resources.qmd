@@ -9,6 +9,6 @@
 
 ::::
 :::: {.column width=30% .fragment}
-![](img/qr-github.svg)
+![](img/qr-github.png)
 ::::
 :::::

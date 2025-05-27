@@ -22,23 +22,11 @@ execute:
 ---
 
 {{< include /_resources.qmd >}}
-
-<!--
-## Overview
-
-- High Throughput Computing (HTC)
-- Walltime & memory
-- Efficiency
-- Improving performance
-  - Profiling
-  - Code optimization
-- Wrap up
--->
-
 {{< include /_define_htc.qmd >}}
 {{< include /_efficiency.qmd >}}
 {{< include /_know_your_app.qmd >}}
-{{< include /_walltime_and_memory.qmd >}}
+{{< include /_profiling.qmd >}}
+<!--{{< include /_walltime_and_memory.qmd >}}-->
 {{< include /_fill_a_node_single.qmd >}}
 {{< include /_fill_a_node_multiple.qmd >}}
 {{< include /_profiling_and_optimization.qmd >}}

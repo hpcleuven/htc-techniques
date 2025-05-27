@@ -1,0 +1,37 @@
+# Profiling
+
+
+## Profiling in HTC
+
+::: {.incremental}
+- Baseline: **NOW** is the best time for *profiling*
+- Which tool? Depends on the programming language used
+- Use performant code when going to production
+:::
+
+::: {.callout-tip .fragment}
+Follow the 'Code Optimization' training if interested.
+More info on [VSC training list](http://vscentrum.be/training)
+:::
+
+## Possible Scenarios
+
+:::: {layout=[35,30,35]}
+
+::: {.column .fragment .fade-in}
+![](img/UserDay2025-flowchart-scenario-1.png)
+:::
+
+::: {.column .fragment .fade-in}
+![](img/UserDay2025-flowchart-scenario-2.png)
+:::
+
+::: {.column .fragment .fade-in}
+![](img/UserDay2025-flowchart-scenario-3.png)
+:::
+
+::::
+
+::: {.fragment}
+Happy with the performance? [Test the memory-bandwidth]{.fragment}
+:::

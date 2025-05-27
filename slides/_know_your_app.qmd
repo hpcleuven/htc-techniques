@@ -30,22 +30,24 @@
 
 </div>
 
-### Graph
+### Performance
 
-![Multi-threading experiment](img/scaling_omp_num_threads.png)
+![](img/scaling_omp_num_threads.png)
 
 ### Conclusion
 
-We fix `OMP_NUM_THREADS=4`.
+- Performance $\approx 0$ if num. threads $>> 1$
+- Optimal choice `OMP_NUM_THREADS=4`
 
 :::: {.callout-warning .fragment}
 Not setting `OMP_NUM_THREADS` leads to massive oversubscription
 ::::
 
+<!--
 :::: {.callout-tip .fragment}
 `OMP_NUM_THREADS` $\leq$ number of cores
 ::::
-
+-->
 :::
 
 ## Varying `--nr-cores`
@@ -59,12 +61,10 @@ Not setting `OMP_NUM_THREADS` leads to massive oversubscription
 
 ### `R` script
 
-```{r}
+```r
 # if number of cores is greater than 1, use parallel processing
 if (opt$nr_cores > 1) {
     library(doParallel)
-    # cl set<- makeCluster(opt$nr_cores)
-    # registerDoParallel(cl)
     registerDoParallel(opt$nr_cores)
 }
 ```
@@ -99,7 +99,7 @@ if (opt$nr_cores > 1) {
 ## Optimal Setup for the Baseline
 
 - `export OMP_NUM_THREADS=4`
-- `P = 60`
-- `C = 1`
-- `M = 1`
+- Power: `P = 60`
+- Number of cores: `C = 1`
+- Number of matrices: `M = 1`
 - To mimic different domain sizes: $S \in [3000 : 5000]$.

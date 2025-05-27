@@ -1,1 +1,34 @@
-# Fill up the node with one item
+# Memory Bandwidth (Full Node) Test
+
+## Filling a node
+
+:::: {.panel-tabset}
+
+### About
+
+- Copy the baseline example to fill the node
+- Use optimal configs
+  - `OMP_NUM_THREADS=4`, `P=60`, `S=3333`
+- Expected runtime is 16 seconds
+
+### Jobscript
+
+```bash
+#SBATCH --cluster=wice
+#SBATCH --partition=batch_sapphirerapids
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=96
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+
+for in in $(seq 1 24); do
+    Rscript dgemm.R --nr_matrices=1 --nr_cores=1 \
+                    --power=60 --size=3333 &
+done
+wait
+```
+
+### Result
+
+::::

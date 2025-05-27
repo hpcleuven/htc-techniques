@@ -25,28 +25,35 @@
 ### About
 
 - `dgemm.R`: matrix-matrix multiplication in `R`
+- Takes arguments $N$ and $p$
+- Generates matrix $A \in \mathbb{R}^{N \times N}$, elements normally distributed
+- Computes $A^p$
+- Determines minimum and maximum diagonal element
 - Using BLAS with OpenMP multi-threading: `%*%`
 - Implicit parallelism
 - Avoid oversubscription by setting `OMP_NUM_THREADS`
 - Using parallel `foreach` for multiple matrices
 
+
+
 ### Jobscript
 
-```{bash}
+```bash
 module load R/4.4.2-gfbf-2024a
 module load R-bundle-CRAN/2024.11-foss-2024a
 
 # call signature
-export OMP_NUM_THREADS=1
+export OMP_NUM_THREADS=<T>
 dgemm.R --nr-matrices <M> --matrix-size <S> \
         --power <P> --seed <Z> --nr-cores <C>
 ```
 
-- experiment with input variables `M, S, P, C`
+- Let `P=60`, `M=1`, `C=1`
+- Experiment with input variables `T, S`
 
 ### `R` script
 
-```{r}
+```r
 # Function to compute the matrix power
 matrix_power <- function(A, power) {
     result <- A
@@ -56,6 +63,10 @@ matrix_power <- function(A, power) {
     result
 }
 ```
+:::: {.fragment}
+- `%*%` uses Basic Linear Algebra Subroutines (BLAS)
+- Uses multiple threads, each on a core
+::::
 
 :::
 
@@ -97,11 +108,6 @@ sys     1m26.297s
 4 minutes CPU time in 6 seconds walltime ... [parallelism!]{.fragment}
 :::
 
-::: {.fragment}
-- `%*%` uses Basic Linear Algebra Subroutines (BLAS)
-- Uses multiple threads, each on a core
-:::
-
 
 ## Setting `--cpus-per-task > 1` {fontsize=80%}
 
@@ -109,7 +115,12 @@ sys     1m26.297s
 
 #### Results
 
-:::: {.columns}
+```bash
+srun --machine=wice --partition=batch_sapphirerapids \
+     --nodes=1 --ntasks=1 --cpus-per-task=X ...
+```
+
+:::: {.columns .fragment}
 ::::: {.column width=50%}
 
 <div style="font-size: 0.75em;">
@@ -171,14 +182,6 @@ $E_n=\frac{S_n}{n}$
 ::::
 :::
 
-#### Conclusion
-
-:::: {.fragment}
-- Poor parallel efficiency if `--cpus-per-task>2`
-- HPC infrastructure is *very* expensive
-- Find an efficient setup
-::::
-
 :::
 
 
@@ -190,14 +193,14 @@ Applications can be
 - CPU bound 😊
 - I/O bound 😗
 
-::: {.callout-warning .fragment}
+::: {.callout-tip .fragment}
 Benchmarking reveals it!
 :::
 
 
 ## Why performance degradation?
 
-It's the memory architecture, stupid!
+It's all in the memory architecture!
 
 ::: {style="font-size: 80%;"}
 - 48 core Intel Sapphire Rapids CPU
