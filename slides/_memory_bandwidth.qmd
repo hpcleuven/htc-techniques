@@ -34,4 +34,33 @@ echo "Elapsed time: $((end - start))"
 
 ### Result
 
+- Repeated 9 times (various nodes)
+- Average elapsed time is 35.1 sec
+- Twice the expectation
+- Memory-bandwidth is the bottleneck
+- DGEMM is memory-bound
 ::::
+
+
+## Why performance degradation?
+
+It's all in the memory architecture!
+
+::: {style="font-size: 80%;"}
+- 48 core Intel Sapphire Rapids CPU
+  - 256 GB RAM, 8 memory channels at 4800 MHz
+  - L3 cache per socket: 105 MB (shared, 2.2 MB per core)
+  - L2 cache per CPU (core): 2 MB
+  - L1 cache per CPU (core): 48 kB data
+- 36 core Intel Icelake
+  - 256 GB RAM, 8 memory channels at 3200 MHz
+  - L3 cache per socket: 54 MB (shared, 1.5 MB per core)
+  - L2 cache per CPU (core): 1.25 MB
+  - L1 cache per CPU (core): 48 kB data
+:::
+
+::: {.callout-tip .fragment}
+Check `lscpu` and `lscpu -e` for more info.
+:::
+
+

@@ -27,7 +27,7 @@ execute:
 {{< include /_know_your_app.qmd >}}
 {{< include /_profiling.qmd >}}
 <!--{{< include /_walltime_and_memory.qmd >}}-->
-{{< include /_fill_a_node_single.qmd >}}
+{{< include /_memory_bandwidth.qmd >}}
 {{< include /_fill_a_node_multiple.qmd >}}
 {{< include /_profiling_and_optimization.qmd >}}
 
