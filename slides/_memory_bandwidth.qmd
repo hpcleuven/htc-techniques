@@ -22,11 +22,14 @@
 
 module load R-bundle-CRAN/2024.11-foss-2024a
 
+start=$(date +%s%3N)
 for in in $(seq 1 24); do
     Rscript dgemm.R --nr_matrices=1 --nr_cores=1 \
                     --power=60 --size=3333 &
 done
 wait
+end=$(date +%s%3N)
+echo "Elapsed time: $((end - start))"
 ```
 
 ### Result
