@@ -5,7 +5,7 @@
 #SBATCH --ntasks=2
 #SBATCH --cpus-per-task=48
 #SBATCH --time=5:00
-#SBATCH --job-name=memory_bandwidth
+#SBATCH --job-name=taskset_L3
 #SBATCH --output=%x-%j.log
 
 module load R-bundle-CRAN/2024.11-foss-2024a

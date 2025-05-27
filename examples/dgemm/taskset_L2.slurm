@@ -4,9 +4,9 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
 #SBATCH --ntasks-per-socket=4
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=12
 #SBATCH --time=5:00
-#SBATCH --job-name=memory_bandwidth
+#SBATCH --job-name=taskset_L2
 #SBATCH --output=%x-%j.log
 
 module load R-bundle-CRAN/2024.11-foss-2024a
