@@ -1,0 +1,12 @@
+# Know your application
+
+
+## Step 1: single case
+
+- Pick one case/example
+- Should represent your production run
+  (domain size, number of particles, protein size etc)
+- Runs reasonably short (e.g. minutes)
+  (take less iterations or timesteps)
+- benchmark this specific case
+  - CPU: num processes/threads
