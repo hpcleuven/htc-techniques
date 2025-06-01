@@ -3,7 +3,7 @@
 ::::: {.columns .fragment .smaller}
 :::: {.column width=70% .fragment}
 
-- [htc-techniques](https://github.com/hpcleuven/htc-techniques)
+- [https://github.com/hpcleuven/htc-techniques](https://github.com/hpcleuven/htc-techniques)
 - Credits: Geert Jan Bex (UHasselt, KU Leuven)
   [Best-practices-for-R-on-HPC](https://github.com/hpcleuven/Best-practices-for-R-on-HPC)
 

@@ -1,0 +1,65 @@
+# HTC Benchmark
+
+## How to fill a node?
+
+::: {.incremental}
+- Using `worker-ng/1.0.11-GCCcore-10.3.0`
+- 192 input values for `SIZE`
+- Concurrently running items: `--ntasks`
+- Domain size: `--cpus-per-task`
+:::
+
+::: {.fragment}
+| `sbatch` Options  |    |    |    |    |    |    |    |    |
+|-------------------|----|----|----|----|----|----|----|----|
+| `--ntasks`        | 1  | 2  | 4  | 6  | 8  | 12 | 16 | 24 |
+| `--cpus-per-task` | 96 | 48 | 24 | 16 | 12 | 8  | 6  | 4  |
+:::
+
+
+##
+
+::: {.panel-tabset}
+
+### Results
+
+:::: {style="font-size: 75%;"}
+
+| Concurrency | Runtime | Speedup | Eff.  | Credits |
+|-------------|---------|---------|-------|---------|
+| 1           | 6909    | 1.0     | 1.000 | 38345   |
+| 2           | 3407    | 2.0     | 1.014 | 18909   |
+| 4           | 1757    | 3.9     | 0.983 | 9752    |
+| 6           | 1184    | 5.8     | 0.973 | 6572    |
+| 8           | 907     | 7.6     | 0.952 | 5034    |
+| 12          | 650     | 10.6    | 0.886 | 3608    |
+| 16          | 545     | 12.7    | 0.792 | 3025    |
+| 24          | 474     | 14.6    | 0.607 | 2631    |
+::::
+
+### Runtime
+
+![](img/worker-runtime.png)
+
+### Speedup
+
+![](img/worker-speedup.png)
+
+### Efficiency
+
+![](img/worker-efficiency.png)
+
+:::
+
+## Conclusion
+
+:::{.incremental}
+- Sparse allocation (`--ntasks`: 1, 2, 4, 6, 8):
+    + Parallel efficiency $\approx$ 100$\%$ (ideal)
+    + **no memory contention**
+- Tight allocation (`--ntasks`: 12, 16, 24):
+    + Parallel efficiency $>$ 60% (acceptable)
+    + **moderate memory contention**
+- Optimal choice: fill up the node: 
+    + `--ntasks=24`, `--cpus-per-task=4`
+:::

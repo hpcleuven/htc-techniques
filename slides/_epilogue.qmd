@@ -1,0 +1,25 @@
+# Epilogue
+
+## Summary
+
+::: {.incremental}
+- Choose a representative testcase
+- Find the optimal runtime setup for testcase (profiling?)
+- Test concurrency
+- Repeat on multiple architectures (if possible)
+:::
+
+## Extra Info
+
+::: {.incremental}
+- Check out 'Code Profiling Workshop' by Steven Vandenbrande
+- VSC Trainings:
+    + 'Code optimization' (by Geert Jan Bex)
+    + 'Workflows for HPC'
+    + Language-specific trainings for R, Python, C, C++, Fortran
+    + ...
+:::
+
+::: {.callout-tip .fragment}
+In either case, contact HPC support for any help
+:::

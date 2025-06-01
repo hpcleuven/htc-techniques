@@ -3,27 +3,31 @@
 ##
 
 ::::: {.columns}
-:::: {.column width=50%}
+:::: {.column width=50% .fragment}
 **HTC**
 
 - Many work items
 - independent from one another
 - "moderate" walltime per item
 
+::: {.callout-tip .fragment}
+Details are covered in the 'Workflows for HPC' training
+:::
 ::::
-:::: {.column width=50%}
+
+:::: {.column width=50% .fragment}
+
+::::: {.incremental}
 **Possible Scenarios**
 
 - Monte Carlo simulation
 - Multi-dimensional parameter survey
 
-**Tools**
+**Common Tools**
 
 - Job arrays (e.g. PBS, Slurm)
 - Worker-ng, atools (developed at VSC)
+:::::
 
-::: {.callout-tip .fragment}
-Details are covered in the 'Workflows for HPC' training
-:::
 ::::
 :::::

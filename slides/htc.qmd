@@ -26,28 +26,6 @@ execute:
 {{< include /_efficiency.qmd >}}
 {{< include /_know_your_app.qmd >}}
 {{< include /_profiling.qmd >}}
-<!--{{< include /_walltime_and_memory.qmd >}}-->
 {{< include /_memory_bandwidth.qmd >}}
-{{< include /_fill_a_node_multiple.qmd >}}
-{{< include /_profiling_and_optimization.qmd >}}
-
-
-# Wrap up
-
-## Conclusions
-
-- Running R on HPC is easy
-- Running R on HPC efficiently... [requires care]{.fragment}
-
-
-## How to proceed?
-
-If necessary, take trainings
-
-- HPC intro
-- Linux intro
-- Contact support
-
-::: {.callout-tip .fragment}
-If you are a programmer, consider parallelization
-:::
+{{< include /_htc_benchmark.qmd >}}
+{{< include /_epilogue.qmd >}}

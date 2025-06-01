@@ -59,8 +59,66 @@ It's all in the memory architecture!
   - L1 cache per CPU (core): 48 kB data
 :::
 
+
+## CPU Affinity
+
+
+:::: {.panel-tabset}
+
+### Pinning
+Use `taskset` to pin threads/processes to cores
+
 ::: {.callout-tip .fragment}
 Check `lscpu` and `lscpu -e` for more info.
 :::
 
+::: {.fragment}
+```bash
+# Ex. use the first 4 cores
+taskset -c 0-4 <cmd> <args>
+```
+:::
 
+### Jobscript
+
+```bash
+#SBATCH --nodes=1 --ntasks=8
+#SBATCH --ntasks-per-socket=4
+#SBATCH --cpus-per-task=12
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+taskset -c 0-3   Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
+taskset -c 12-15 Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
+taskset -c 24-27 Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
+taskset -c 36-39 Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
+taskset -c 48-51 Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
+taskset -c 60-63 Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
+taskset -c 72-75 Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
+taskset -c 84-87 Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
+wait
+
+end=$(date +%s%3N)
+elapsed=$((end - start))
+echo "Elapsed time: $elapsed (milliseconds)"
+```
+
+### Results
+
+:::: {.incremental}
+- Average of 6 runs is 16.3 seconds (=expected)
+- Memory contention is circumvented by **pinning** and **undersubscription**
+- 2/3rd of cores on the node are left idle! (expensive job)
+::::
+
+:::: {.callout-warning .fragment}
+Two choices: (a) fill a node, and each item runs 2x slower,
+or (b) fill 1/3rd of the node, and each item runs reasonably fast.
+
+A more realistic test helps making a decision.
+::::
+::::

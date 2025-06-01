@@ -1,12 +1,13 @@
 # Efficiency
 
 
-## Representative Case
+## Test Environment
 
 - Define a representative case
   (domain size, num. particles, protein size, genome size, etc)
 - Runtime of +/- minutes
   (reduced timesteps)
+- Use modules, if available
 
 
 ## Which Resources Do I Need?
@@ -33,7 +34,6 @@
 - Implicit parallelism
 - Avoid oversubscription by setting `OMP_NUM_THREADS`
 - Using parallel `foreach` for multiple matrices
-
 
 
 ### Jobscript
