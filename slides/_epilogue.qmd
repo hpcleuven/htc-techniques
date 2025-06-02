@@ -17,7 +17,6 @@
     + 'Code optimization' (by Geert Jan Bex)
     + 'Workflows for HPC'
     + Language-specific trainings for R, Python, C, C++, Fortran
-    + ...
 :::
 
 ::: {.callout-tip .fragment}

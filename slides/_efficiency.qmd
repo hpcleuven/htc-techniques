@@ -12,11 +12,11 @@
 
 ## Which Resources Do I Need?
 
-- Serial vs parallel code
+- Serial vs parallel code;
   if parallel, MPI? OpenMP? or hybrid?
 - CPU or GPU needed (read user guide)
 - max memory needed (use [monitor](https://docs.vscentrum.be/compute/jobs/monitoring_memory_and_cpu_usage_of_programs.html) tool)
-- I/O pattern and storage request
+- storage demand, and I/O pattern and
 
 
 ## Example: DGEMM
@@ -24,6 +24,9 @@
 ::: {.panel-tabset}
 
 ### About
+
+:::: {.incremental} 
+::::: {style="font-size: 75%;"}
 
 - `dgemm.R`: matrix-matrix multiplication in `R`
 - Takes arguments $N$ and $p$
@@ -35,6 +38,8 @@
 - Avoid oversubscription by setting `OMP_NUM_THREADS`
 - Using parallel `foreach` for multiple matrices
 
+:::::
+::::
 
 ### Jobscript
 
@@ -44,11 +49,11 @@ module load R-bundle-CRAN/2024.11-foss-2024a
 
 # call signature
 export OMP_NUM_THREADS=<T>
-dgemm.R --nr-matrices <M> --matrix-size <S> \
-        --power <P> --seed <Z> --nr-cores <C>
+dgemm.R --nr-matrices 1 --nr-cores 1 --seed 1234 \
+        --power <P> --matrix-size <S>
 ```
 
-- Let `P=60`, `M=1`, `C=1`
+- Let `P=60`
 - Experiment with input variables `T, S`
 
 ### `R` script
@@ -75,10 +80,59 @@ matrix_power <- function(A, power) {
 
 Experiments done on a wICE Sapphire Rapids node
 
-- 2 Intel Xeon Platinum 8468 sockets, 48-cores each
+- Intel Xeon Platinum 8468, 2 sockets, 48-cores each
 - 256 GB RAM
 - `module load R/4.4.2-gfbf-2024a`
 - `module load R-bundle-CRAN/2024.11-foss-2024a`
+
+
+## The good, the Bad and the Ugly!
+
+Applications can be
+
+- CPU bound 😊
+- Memory bound 😒
+- I/O bound 😗
+
+::: {.callout-tip .fragment}
+Benchmarking reveals it!
+:::
+
+
+## How to time?
+
+::: {.incremental}
+- In job script: `time`
+- In job script: `hyperfine`
+  - Runs command multiple times
+  - Reports mean, median, min, max, etc.
+  - Can compare multiple commands
+- For completed job (including overheads)
+  ```bash
+  $ sacct --cluster=<cluster> --format=JobID,TotalCPU,Elapsed --jobs=<job-id>
+  # or
+  $ slurm_jobinfo <JobID>
+  ```
+:::
+
+## And another thing ...
+
+Reading/writing many small files: [bad idea!]{.fragment}
+
+::: {.callout-warning .fragment}
+File systems for HPC optimized for large read/write operations, *not* for
+many metadata operations!
+:::
+
+::: {.fragment}
+Use appropriate file types, e.g.,
+
+(a) HDF5 &emsp; b. Parquet &emsp; c. ADIOS2 &emsp; ...
+:::
+
+::: {.callout-tip .fragment}
+Use `$VSC_SCRATCH_NODE` for the node SSD ($<$ 1TB on wICE).
+:::
 
 
 ## Parallel or not?
@@ -109,7 +163,7 @@ sys     1m26.297s
 :::
 
 
-## Setting `--cpus-per-task > 1` {fontsize=80%}
+## Setting `--cpus-per-task > 1` {fontsize=75%}
 
 ::: {.panel-tabset}
 
@@ -117,7 +171,7 @@ sys     1m26.297s
 
 ```bash
 srun --machine=wice --partition=batch_sapphirerapids \
-     --nodes=1 --ntasks=1 --cpus-per-task=X ...
+     --nodes=1 --ntasks=1 --cpus-per-task=<n> ...
 ```
 
 :::: {.columns .fragment}
@@ -164,7 +218,8 @@ srun --machine=wice --partition=batch_sapphirerapids \
 
 ::: {.columns}
 :::: {.column width=15%}
-$S_n=\frac{T_1}{T_n}$
+$S_n=\frac{T_1}{T_n}$,
+$n\in[1, 96]$
 ::::
 :::: {.column width=85%}
 ![](img/speedup_cpus_per_task.png)
@@ -175,58 +230,12 @@ $S_n=\frac{T_1}{T_n}$
 
 ::: {.columns}
 :::: {.column width=15%}
-$E_n=\frac{S_n}{n}$
+$E_n=\frac{S_n}{n}$,
+$n\in[1, 96]$
 ::::
 :::: {.column width=85%}
 ![](img/efficiency_cpus_per_task.png)
 ::::
 :::
 
-:::
-
-
-## The good news is...
-
-Applications can be
-
-- Memory bound 😒
-- CPU bound 😊
-- I/O bound 😗
-
-::: {.callout-tip .fragment}
-Benchmarking reveals it!
-:::
-
-
-## How to time?
-
-- In job script: `time`
-- In job script: `hyperfine`
-  - Runs command multiple times
-  - Reports mean, median, min, max, etc.
-  - Can compare multiple commands
-- For completed job (including overheads)
-  ```bash
-  $ sacct --cluster=<cluster> --format=JobID,TotalCPU,Elapsed --jobs=<job-id>
-  ```
-
-
-## And another thing...
-
-Reading/writing many small files: [bad idea!]{.fragment}
-
-::: {.callout-warning .fragment}
-File systems for HPC optimized for large read/write operations, *not* for
-many metadata operations!
-:::
-
-::: {.fragment}
-Use appropriate file types, e.g.,
-
-- HDF5
-- Parquet
-:::
-
-::: {.callout-tip .fragment}
-Use `$VSC_SCRATCH_NODE` for SSD on the node.
 :::

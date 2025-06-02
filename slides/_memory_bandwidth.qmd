@@ -6,7 +6,7 @@
 
 ### About
 
-- Copy the baseline example to fill the node
+- Replicate the baseline example to fill the node
 - Use optimal configs
   - `OMP_NUM_THREADS=4`, `P=60`, `S=3333`
 - Expected runtime is 16 seconds
@@ -24,8 +24,7 @@ module load R-bundle-CRAN/2024.11-foss-2024a
 
 start=$(date +%s%3N)
 for in in $(seq 1 24); do
-    Rscript dgemm.R --nr_matrices=1 --nr_cores=1 \
-                    --power=60 --size=3333 &
+    Rscript dgemm.R --power=60 --size=3333 &
 done
 wait
 end=$(date +%s%3N)
@@ -92,14 +91,14 @@ export OMP_NUM_THREADS=4
 start=$(date +%s%3N)
 
 # two work itesm each using 4 cores on one socket
-taskset -c 0-3   Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
-taskset -c 12-15 Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
-taskset -c 24-27 Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
-taskset -c 36-39 Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
-taskset -c 48-51 Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
-taskset -c 60-63 Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
-taskset -c 72-75 Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
-taskset -c 84-87 Rscript dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --size=3333 &
+taskset -c 0-3   Rscript dgemm.R --power=60 --size=3333 &
+taskset -c 12-15 Rscript dgemm.R --power=60 --size=3333 &
+taskset -c 24-27 Rscript dgemm.R --power=60 --size=3333 &
+taskset -c 36-39 Rscript dgemm.R --power=60 --size=3333 &
+taskset -c 48-51 Rscript dgemm.R --power=60 --size=3333 &
+taskset -c 60-63 Rscript dgemm.R --power=60 --size=3333 &
+taskset -c 72-75 Rscript dgemm.R --power=60 --size=3333 &
+taskset -c 84-87 Rscript dgemm.R --power=60 --size=3333 &
 wait
 
 end=$(date +%s%3N)
@@ -116,9 +115,6 @@ echo "Elapsed time: $elapsed (milliseconds)"
 ::::
 
 :::: {.callout-warning .fragment}
-Two choices: (a) fill a node, and each item runs 2x slower,
-or (b) fill 1/3rd of the node, and each item runs reasonably fast.
-
-A more realistic test helps making a decision.
+HPC infrastructure are expensive. Can we do better?
 ::::
 ::::

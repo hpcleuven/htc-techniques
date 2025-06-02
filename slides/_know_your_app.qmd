@@ -9,8 +9,8 @@
 
 - `%*%` operator triggers BLAS
 - BLAS is multithreaded (OpenMP)
-- experiment with `OMP_NUM_THREADS`
-- Setting `S = 3333, P = 60, C = 1, N = 1`
+- Set `OMP_NUM_THREADS`
+- Keep `S = 3333, P = 60, C = 1, N = 1`
 
 ### Results 
 
