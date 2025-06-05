@@ -1,0 +1,1 @@
+sbatch --account lpt2_sysadmin /vsc-hard-mounts/leuven-data/307/vsc30745/repos/github/hpcleuven/htc-techniques/examples/dgemm/worker_icelake/tmp_worker_f1669e1b-7456-4681-815b-7f61b1b6d3d0/jobscript.sh

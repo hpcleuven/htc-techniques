@@ -1,0 +1,2735 @@
+export SIZE='3869'
+export SLURM_ARRAY_TASK_ID='1'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4677'
+export SLURM_ARRAY_TASK_ID='2'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3546'
+export SLURM_ARRAY_TASK_ID='3'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4071'
+export SLURM_ARRAY_TASK_ID='4'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3979'
+export SLURM_ARRAY_TASK_ID='5'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3311'
+export SLURM_ARRAY_TASK_ID='6'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4415'
+export SLURM_ARRAY_TASK_ID='7'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3461'
+export SLURM_ARRAY_TASK_ID='8'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4949'
+export SLURM_ARRAY_TASK_ID='9'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4615'
+export SLURM_ARRAY_TASK_ID='10'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4835'
+export SLURM_ARRAY_TASK_ID='11'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4532'
+export SLURM_ARRAY_TASK_ID='12'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4180'
+export SLURM_ARRAY_TASK_ID='13'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4200'
+export SLURM_ARRAY_TASK_ID='14'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4643'
+export SLURM_ARRAY_TASK_ID='15'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3530'
+export SLURM_ARRAY_TASK_ID='16'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4721'
+export SLURM_ARRAY_TASK_ID='17'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4160'
+export SLURM_ARRAY_TASK_ID='18'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4767'
+export SLURM_ARRAY_TASK_ID='19'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3806'
+export SLURM_ARRAY_TASK_ID='20'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3683'
+export SLURM_ARRAY_TASK_ID='21'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3474'
+export SLURM_ARRAY_TASK_ID='22'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4818'
+export SLURM_ARRAY_TASK_ID='23'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3744'
+export SLURM_ARRAY_TASK_ID='24'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4456'
+export SLURM_ARRAY_TASK_ID='25'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4756'
+export SLURM_ARRAY_TASK_ID='26'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3674'
+export SLURM_ARRAY_TASK_ID='27'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4988'
+export SLURM_ARRAY_TASK_ID='28'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4504'
+export SLURM_ARRAY_TASK_ID='29'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3294'
+export SLURM_ARRAY_TASK_ID='30'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4694'
+export SLURM_ARRAY_TASK_ID='31'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3524'
+export SLURM_ARRAY_TASK_ID='32'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3091'
+export SLURM_ARRAY_TASK_ID='33'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3882'
+export SLURM_ARRAY_TASK_ID='34'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3624'
+export SLURM_ARRAY_TASK_ID='35'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3223'
+export SLURM_ARRAY_TASK_ID='36'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4977'
+export SLURM_ARRAY_TASK_ID='37'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4065'
+export SLURM_ARRAY_TASK_ID='38'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4711'
+export SLURM_ARRAY_TASK_ID='39'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3545'
+export SLURM_ARRAY_TASK_ID='40'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4049'
+export SLURM_ARRAY_TASK_ID='41'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4373'
+export SLURM_ARRAY_TASK_ID='42'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4791'
+export SLURM_ARRAY_TASK_ID='43'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4668'
+export SLURM_ARRAY_TASK_ID='44'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4792'
+export SLURM_ARRAY_TASK_ID='45'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4617'
+export SLURM_ARRAY_TASK_ID='46'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4115'
+export SLURM_ARRAY_TASK_ID='47'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4598'
+export SLURM_ARRAY_TASK_ID='48'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3438'
+export SLURM_ARRAY_TASK_ID='49'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4212'
+export SLURM_ARRAY_TASK_ID='50'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4716'
+export SLURM_ARRAY_TASK_ID='51'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3085'
+export SLURM_ARRAY_TASK_ID='52'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3073'
+export SLURM_ARRAY_TASK_ID='53'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4798'
+export SLURM_ARRAY_TASK_ID='54'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4337'
+export SLURM_ARRAY_TASK_ID='55'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3842'
+export SLURM_ARRAY_TASK_ID='56'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4688'
+export SLURM_ARRAY_TASK_ID='57'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4971'
+export SLURM_ARRAY_TASK_ID='58'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4114'
+export SLURM_ARRAY_TASK_ID='59'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4467'
+export SLURM_ARRAY_TASK_ID='60'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3980'
+export SLURM_ARRAY_TASK_ID='61'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3399'
+export SLURM_ARRAY_TASK_ID='62'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3919'
+export SLURM_ARRAY_TASK_ID='63'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3614'
+export SLURM_ARRAY_TASK_ID='64'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3797'
+export SLURM_ARRAY_TASK_ID='65'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4259'
+export SLURM_ARRAY_TASK_ID='66'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3632'
+export SLURM_ARRAY_TASK_ID='67'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4089'
+export SLURM_ARRAY_TASK_ID='68'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3581'
+export SLURM_ARRAY_TASK_ID='69'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4036'
+export SLURM_ARRAY_TASK_ID='70'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3565'
+export SLURM_ARRAY_TASK_ID='71'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4287'
+export SLURM_ARRAY_TASK_ID='72'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4874'
+export SLURM_ARRAY_TASK_ID='73'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4941'
+export SLURM_ARRAY_TASK_ID='74'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4913'
+export SLURM_ARRAY_TASK_ID='75'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3812'
+export SLURM_ARRAY_TASK_ID='76'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4463'
+export SLURM_ARRAY_TASK_ID='77'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4601'
+export SLURM_ARRAY_TASK_ID='78'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4881'
+export SLURM_ARRAY_TASK_ID='79'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4989'
+export SLURM_ARRAY_TASK_ID='80'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4333'
+export SLURM_ARRAY_TASK_ID='81'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3942'
+export SLURM_ARRAY_TASK_ID='82'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3304'
+export SLURM_ARRAY_TASK_ID='83'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3819'
+export SLURM_ARRAY_TASK_ID='84'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3113'
+export SLURM_ARRAY_TASK_ID='85'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3211'
+export SLURM_ARRAY_TASK_ID='86'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3599'
+export SLURM_ARRAY_TASK_ID='87'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4009'
+export SLURM_ARRAY_TASK_ID='88'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3756'
+export SLURM_ARRAY_TASK_ID='89'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4238'
+export SLURM_ARRAY_TASK_ID='90'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3990'
+export SLURM_ARRAY_TASK_ID='91'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3401'
+export SLURM_ARRAY_TASK_ID='92'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3533'
+export SLURM_ARRAY_TASK_ID='93'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3214'
+export SLURM_ARRAY_TASK_ID='94'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4081'
+export SLURM_ARRAY_TASK_ID='95'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4175'
+export SLURM_ARRAY_TASK_ID='96'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3978'
+export SLURM_ARRAY_TASK_ID='97'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4911'
+export SLURM_ARRAY_TASK_ID='98'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4689'
+export SLURM_ARRAY_TASK_ID='99'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3727'
+export SLURM_ARRAY_TASK_ID='100'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3786'
+export SLURM_ARRAY_TASK_ID='101'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4577'
+export SLURM_ARRAY_TASK_ID='102'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4309'
+export SLURM_ARRAY_TASK_ID='103'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3616'
+export SLURM_ARRAY_TASK_ID='104'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4196'
+export SLURM_ARRAY_TASK_ID='105'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4761'
+export SLURM_ARRAY_TASK_ID='106'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3248'
+export SLURM_ARRAY_TASK_ID='107'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3595'
+export SLURM_ARRAY_TASK_ID='108'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4382'
+export SLURM_ARRAY_TASK_ID='109'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3256'
+export SLURM_ARRAY_TASK_ID='110'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4211'
+export SLURM_ARRAY_TASK_ID='111'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4972'
+export SLURM_ARRAY_TASK_ID='112'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3681'
+export SLURM_ARRAY_TASK_ID='113'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4994'
+export SLURM_ARRAY_TASK_ID='114'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4735'
+export SLURM_ARRAY_TASK_ID='115'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3408'
+export SLURM_ARRAY_TASK_ID='116'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4051'
+export SLURM_ARRAY_TASK_ID='117'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4490'
+export SLURM_ARRAY_TASK_ID='118'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3739'
+export SLURM_ARRAY_TASK_ID='119'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3877'
+export SLURM_ARRAY_TASK_ID='120'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4223'
+export SLURM_ARRAY_TASK_ID='121'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4226'
+export SLURM_ARRAY_TASK_ID='122'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4851'
+export SLURM_ARRAY_TASK_ID='123'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4925'
+export SLURM_ARRAY_TASK_ID='124'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3541'
+export SLURM_ARRAY_TASK_ID='125'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3903'
+export SLURM_ARRAY_TASK_ID='126'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3008'
+export SLURM_ARRAY_TASK_ID='127'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3470'
+export SLURM_ARRAY_TASK_ID='128'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4217'
+export SLURM_ARRAY_TASK_ID='129'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4861'
+export SLURM_ARRAY_TASK_ID='130'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4857'
+export SLURM_ARRAY_TASK_ID='131'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3306'
+export SLURM_ARRAY_TASK_ID='132'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3135'
+export SLURM_ARRAY_TASK_ID='133'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3798'
+export SLURM_ARRAY_TASK_ID='134'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3987'
+export SLURM_ARRAY_TASK_ID='135'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3675'
+export SLURM_ARRAY_TASK_ID='136'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3713'
+export SLURM_ARRAY_TASK_ID='137'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3358'
+export SLURM_ARRAY_TASK_ID='138'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3377'
+export SLURM_ARRAY_TASK_ID='139'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='4873'
+export SLURM_ARRAY_TASK_ID='140'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3576'
+export SLURM_ARRAY_TASK_ID='141'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3761'
+export SLURM_ARRAY_TASK_ID='142'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3511'
+export SLURM_ARRAY_TASK_ID='143'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
+#WORKER----
+export SIZE='3032'
+export SLURM_ARRAY_TASK_ID='144'
+
+set -x
+
+module load R-bundle-CRAN/2024.11-foss-2024a
+export OMP_NUM_THREADS=4
+
+LOGFILE="$SLURM_JOB_NAME-$(printf '%03d' $SLURM_ARRAY_TASK_ID).log"
+echo "SIZE=$SIZE" >> $LOGFILE
+start=$(date +%s%3N)
+
+# two work itesm each using 4 cores on one socket
+Rscript ../dgemm.R --nr_matrices=1 --nr_cores=1 --power=60 --matrix_size=$SIZE
+
+end=$(date +%s%3N)
+echo "Elapsed time (msec): $((end - start))" >> $LOGFILE
+
