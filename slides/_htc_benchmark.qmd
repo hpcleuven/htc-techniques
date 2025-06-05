@@ -17,7 +17,7 @@
 :::
 
 
-##
+## Testing on Sapphire Rapids
 
 ::: {.panel-tabset}
 
@@ -39,19 +39,19 @@
 
 ### Runtime
 
-![](img/worker-runtime.png)
+![](img/worker-sapphirerapids-runtime.png)
 
 ### Speedup
 
-![](img/worker-speedup.png)
+![](img/worker-sapphirerapids-speedup.png)
 
 ### Efficiency
 
-![](img/worker-efficiency.png)
+![](img/worker-sapphirerapids-efficiency.png)
 
 :::
 
-## Conclusion
+## Conclusion (Sapphire Rapids)
 
 :::{.incremental}
 - Sparse allocation (`--ntasks`: 1, 2, 4, 6, 8):
@@ -63,3 +63,58 @@
 - Optimal choice: fill up the node: 
     + `--ntasks=24`, `--cpus-per-task=4`
 :::
+
+
+## Testing on Icelake
+
+::: {.panel-tabset}
+
+### Results
+
+:::: {style="font-size: 75%;"}
+| Concurrency | RUNTIME | SPEEDUP | EFF.  |
+|-------------|---------|---------|-------|
+| 1           | 4651.0  | 1.0     | 1.000 |
+| 2           | 2345.0  | 2.0     | 0.992 |
+| 4           | 1310.0  | 3.6     | 0.888 |
+| 6           | 931.0   | 5.0     | 0.833 |
+| 8           | 751.0   | 6.2     | 0.774 |
+| 12          | 618.0   | 7.5     | 0.627 |
+| 16          | 488.0   | 9.5     | 0.596 |
+| 18          | 754.0   | 6.2     | 0.343 |
+
+::::
+
+### Runtime
+
+![](img/worker-icelake-runtime.png)
+
+### Speedup
+
+![](img/worker-icelake-speedup.png)
+
+### Efficiency
+
+![](img/worker-icelake-efficiency.png)
+
+:::
+
+## Conclusion (Icelake)
+
+:::: {style="font-size: 75%;"}
+:::{.incremental} 
+- Sparse allocation (`--ntasks`: 1, 2):
+    + Parallel efficiency $\approx$ 100$\%$ (ideal)
+    + **no memory contention**
+- Tight allocation (`--ntasks`: 4, 6, 8, 12, 16):
+    + Parallel efficiency $>$ 60% (acceptable)
+    + **moderate memory contention**
+- Fully packed node (`--ntasks=18`):
+    + Parallel efficiency suddenly drops to 34%
+    + **suffering from memory contention**
+:::
+
+::: {.callout-caution .fragment}
+Avoid Icelakes for HTC performance (if you can) in favor of Sapphire Rapids nodes.
+:::
+::::

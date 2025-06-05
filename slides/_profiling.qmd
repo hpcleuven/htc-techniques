@@ -19,15 +19,15 @@ More info on [VSC training list](http://vscentrum.be/training)
 :::: {layout=[35,30,35]}
 
 ::: {.column .fragment .fade-in}
-![](img/UserDay2025-flowchart-scenario-1.png)
+![](img/flowchart-scenario-1.png)
 :::
 
 ::: {.column .fragment .fade-in}
-![](img/UserDay2025-flowchart-scenario-2.png)
+![](img/flowchart-scenario-2.png)
 :::
 
 ::: {.column .fragment .fade-in}
-![](img/UserDay2025-flowchart-scenario-3.png)
+![](img/flowchart-scenario-3.png)
 :::
 
 ::::
