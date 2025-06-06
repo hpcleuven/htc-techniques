@@ -6,5 +6,5 @@
 *.bak
 
 # quarto output
-R_on_HPC.html
-R_on_HPC_files/
+HTC.html
+HTC_files/
